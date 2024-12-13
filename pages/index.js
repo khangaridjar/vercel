@@ -1,23 +1,60 @@
 import Image from "next/image";
 import localFont from "next/font/local";
+import {useRouter} from "next/router";
 
 
 
 export default function Home() {
+  const router = useRouter();
   return (
-    <div className="bg-slate-900 text-black flex justify-center items-center h-full py-20">
-      <div className="bg-gray-500 text-white flex justify-center items-center py-20 w-3/6 h-full rounded rounded-3xl border-8 border-white flex flex-col space-y-4">
-      <Image scr="/khangarid.jpg" width={400} height={400} className="m-24 border-8 border-white rounded rounded-full"/>
-      <div className="h-120 w-120 rounded rounded-xl border-8 border-white flex flex-col space-y-4 py-4">
-      <p className="text-6xl hover:text-red-400 text-white italic text-center">Name: Khangarid</p>
-      <p className="text-6xl hover:text-red-400 text-white italic text-center">School: Nest</p>
-      <p className="text-6xl hover:text-red-400 text-white italic text-center">Class: 11b</p>
-      <p className="text-6xl hover:text-red-400 text-white italic text-center">Age: 16</p>
-      <p className="text-6xl hover:text-red-400 text-white italic text-center">Location: Mongolia</p>
+    <div className="h-screen w-full">
+    <div className="bg-slate-700 h-32 flex justify-center items-center grid grid-row">
+      <p className="text-4xl font-bold text-white">Home Page</p>
       </div>
-      
-      </div>
-      
-    </div>
+    <div className="bg-indigo-500 h-screen flex justify-center items-start mt-4">
+      <button className="p-8 text-2xl border-4 border-gray-400  rounded-xl bg-gray-300 font-bold hover:bg-blue-300 m-4"
+      onClick={() => {
+        router.push("idcard");
+      }}> 
+        idcard
+      </button>
+    
+    <button className="p-8 text-2xl border-4 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300 m-4"
+    onClick={() => {
+      router.push("hicheel2");
+    }}> 
+      hicheel2
+    </button>
+  
+    <button className="p-8 text-2xl border-4 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300 m-4"
+    onClick={() => {
+      router.push("weatherapp");
+    }}> 
+      weatherapp
+    </button>
+  
+    <button className="p-8 text-2xl border-4 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300 m-4"
+    onClick={() => {
+      router.push("hicheel4");
+    }}> 
+      hicheel4
+    </button>
+ 
+    <button className="p-8 text-2xl border-4 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300 m-4"
+    onClick={() => {
+      router.push("hicheel5");
+    }}> 
+      hicheel5
+    </button>
+  
+    <button className="p-8 text-2xl border-4 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300 m-4"
+    onClick={() => {
+      router.push("search");
+    }}> 
+      search
+    </button>
+  </div>
+  </div>
+  
   );
 }

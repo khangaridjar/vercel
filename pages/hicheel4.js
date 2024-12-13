@@ -1,9 +1,11 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 import { useState } from "react";
+import {useRouter} from "next/router";
 
  
 export default function Home() {
+    const router = useRouter();
     const [grid , setGrid] = useState(false);
     const data = [
         {
@@ -45,6 +47,14 @@ export default function Home() {
     ];
   return (
     <div className="p-6 max-w-4xlmx-auto">
+        <div>
+        <button className="p-4 border-2 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300"
+        onClick={() => {
+          router.back();
+        }}> 
+          back
+        </button>
+      </div>
         <div className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold">Нийтлэлүүд</h1>
             <button onClick={() => setGrid(!grid)}
@@ -53,6 +63,7 @@ export default function Home() {
                     {grid ? "жагсаалт харах" : "Grid view"}
                 </button>
         </div>
+
         <div className={grid == true ? "grid grid-cols-1 sm:grid-cols-2 gap-6 " : "space-y-4"
         }
         >

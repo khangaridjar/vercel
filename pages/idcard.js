@@ -1,6 +1,8 @@
 import React from "react";
+import {useRouter} from "next/router";
 
 export default function idCard() {
+  const router = useRouter();
   const user = {
     name: "Khangarid Jargalsaikhan",
     class: "11b",
@@ -11,7 +13,17 @@ export default function idCard() {
   };
 
   return (
+    <div className="h-screen bg-gradient-to-r from-blue-500 to-purple-600 p-4">
+      <div>
+      <button className="p-4 border-2 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300"
+      onClick={() => {
+        router.back();
+      }}> 
+        back
+      </button>
+    </div>
     <div className="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600">
+
       <div className="bg-white w-[30%] p-6 rounded-xl shadow-lg border border-gray-200">
         <div className="text-center mb-4">
           <div className="w-64 h-64  mx-auto bg-blue-100 rounded-full mb-2 overflow-hidden border-4 border-purple-500">
@@ -40,6 +52,7 @@ export default function idCard() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
