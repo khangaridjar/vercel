@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useRouter} from "next/router";
 
 const students = [
   { name: "Ariunbayr Odbayar", school: "Nest education", age: 16, email: "ariuka@gmail.com", image: "/ariunbayr.jpg" },
@@ -24,13 +25,30 @@ const students = [
 
 export default function StudentGrid() {
   const [search, setSearch] = useState("");
+  const router = useRouter();
+  const [grid, setGrid] = useState(true);  
 
   const filteredStudents = students.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <div className="container mx-auto p-6 bg-gradient-to-r from-indigo-600 via-purple-500 to-pink-500 min-h-screen">
+    <div className=" w-screen p-6 bg-slate-900 min-h-screen">
+      <div className="flex justify-between">
+        <button className="p-4 border-2 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300"
+        onClick={() => {
+          router.back();
+        }}> 
+          back
+        </button>
+        <button 
+        onClick={() => setGrid(!grid)}
+        className="px-4 py-2 bg-gray-300 border-2 border-gray-400 rounded-xl text-black hover:bg-blue-300 transition mb-4"
+      >
+        {grid ? "жагсаалт харах" : "Grid view"}
+      </button>
+      </div>
+      
       <h1 className="text-4xl font-extrabold mb-6 text-white text-center">11b Students</h1>
       <div className="mb-6 flex justify-center">
         <input
@@ -40,22 +58,28 @@ export default function StudentGrid() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
+        
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      
+
+      <div className={`grid ${grid ? "grid-cols-1" : "grid-cols-3"} gap-6`}>
         {filteredStudents.map((student, index) => (
           <div
             key={index}
-            className="p-4 rounded-lg shadow-lg bg-white text-gray-900 hover:scale-105 transition-transform duration-200 h-160"
+            className="p-4 rounded-lg shadow-lg bg-slate-500 text-white hover:scale-105 transition-transform duration-200"
           >
             <img
               src={student.image}
-        
+              alt={student.name}
               className="w-full object-cover rounded-md mb-4 h-80"
             />
             <h2 className="text-xl font-semibold mb-2">{student.name}</h2>
             <p className="text-md">School: {student.school}</p>
             <p className="text-md">Age: {student.age}</p>
-            <p className="text-md">Email: <a href={`${student.email}`} className="text-purple-600 hover:underline">{student.email}</a></p>
+            <p className="text-md">Email: 
+              {student.email}
+            </p>
           </div>
         ))}
       </div>

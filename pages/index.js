@@ -53,6 +53,12 @@ export default function Home() {
     }}> 
       search
     </button>
+    <button className="p-8 text-2xl border-4 border-gray-400 rounded-xl bg-gray-300 font-bold hover:bg-blue-300 m-4"
+    onClick={() => {
+      router.push("biydaalt");
+    }}> 
+      biydaalt
+    </button>
   </div>
   </div>
   
