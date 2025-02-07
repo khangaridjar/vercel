@@ -13,37 +13,37 @@ export default function Home() {
             title: "Test 1",
             description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }, // 0
+        }, 
         {
             id: 2,
             title: "Test 2",
             description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }, // 1
+        }, 
         {
             id: 3,
             title: "Test 3",
             description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }, // 2
+        }, 
         {
             id: 4,
             title: "Test 4",
             description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }, // 3
+        },
         {
             id: 5,
             title: "Test 5",
             description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }, // 4
+        }, 
         {
             id: 6,
             title: "Test 6",
             description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }, // 5   
+        },   
     ];
   return (
     <div className="p-6 max-w-4xlmx-auto">
