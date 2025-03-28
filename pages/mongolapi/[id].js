@@ -50,7 +50,7 @@ export default function ItemDetail() {
               {item.address?.country && <h3 className="text-lg mt-2 font-semibold">{item.address.country}</h3>}
             </div>
           </div>
-        ) : <p>Data Oldsongui</p>
+        ) : <p key={item.id}>Data Oldsongui</p>
       ))}
     </div>
   );
