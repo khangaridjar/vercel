@@ -10,7 +10,7 @@ export default function Home() {
         const result = await response.json();
         setCatImages(result.map(cat => cat.url)); 
       } catch (error) {
-        console.error("Error fetching cat images:", error);
+        console.error(error);
       }
     };
 

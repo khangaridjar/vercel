@@ -10,7 +10,7 @@ export default function Home() {
     { name: "Tooluur", path: "2_5" },
     { name: "Mongol API 2", path: "2_6" },
     { name: "Github free API", path: "2_7" },
-    { name: "Assignment", path: "biydaalt" },
+    { name: "Mongol API final", path: "mongolapi" },
   ];
 
   return (
