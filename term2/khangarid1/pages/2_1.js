@@ -5,7 +5,7 @@ export default function Home() {
 
     return (
         <div className="h-screen w-full bg-gray-100">
-            <div className="h-16 w-full bg-blue-800 mt-16 flex justify-center items-center">
+          <div className="h-16 w-full bg-blue-800 mt-16 flex justify-center items-center">
                 <p className="text-white text-xl">
                     Nest High School
                 </p>
