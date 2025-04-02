@@ -3,11 +3,13 @@ import Head from "next/head";
 
 export default function Home() {
   const pages = [
+    { name: "Grid list", path: "hicheel4" },
+    { name: "Search bar", path: "search" },
+    { name: "Weather app", path: "weatherapp" },
+    { name: "Class info", path: "biydaalt" },
     { name: "Nest high school, counter", path: "2_1" },
-    { name: "Color changer", path: "2_2" },
-    { name: "Mongol API 1", path: "2_3" },
+    { name: "Color changer 2", path: "2_2" },
     { name: "Tooluur", path: "2_5" },
-    { name: "Mongol API 2", path: "2_6" },
     { name: "Github free API", path: "2_7" },
     { name: "Mongol API Final", path: "mongolapi1" },
   ];

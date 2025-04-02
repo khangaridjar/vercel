@@ -5,6 +5,7 @@ export default function Mongolapi() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [isGrid, setIsGrid] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,8 +35,10 @@ export default function Mongolapi() {
           ...Object.values(result6).flat(),
           ...Object.values(result7).flat(),
         ]);
+        setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
 
@@ -68,50 +71,56 @@ export default function Mongolapi() {
         </button>
       </div>
 
-      <div
-        className={`w-full ${
-          isGrid ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" : "flex flex-col gap-6"
-        }`}
-      >
-        {filteredData.length === 0 ? (
-          <div className="w-full text-center text-xl font-bold text-red-500">
-            No results found
-          </div>
-        ) : (
-          filteredData.map((item, index) => (
-            <div
-              key={index}
-              className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ${
-                !isGrid && "flex items-center gap-6"
-              }`}
-            >
-              {item?.images && (
-                <img
-                  src={item?.images}
-                  alt={item?.name}
-                  className={`${
-                    isGrid ? "h-96 w-full bg-cover rounded-md" : "h-72 w-48 bg-cover rounded-md"
-                  }`}
-                />
-              )}
-
-              <div className={`${!isGrid && "flex flex-col flex-grow"}`}>
-                <h2 className="text-xl font-bold">{item?.name}</h2>
-                <p className="text-black mt-2">{item?.description}</p>
-                {item?.address?.country && <h3 className="text-lg mt-2 font-semibold">{item?.address?.country}</h3>}
-              </div>
-
-              <div className={`${!isGrid && "ml-auto"}`}>
-                <Link href={`/mongolapi1/${item.id}`}>
-                  <button className="w-24 h-12 mt-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                    More
-                  </button>
-                </Link>
-              </div>
+      {loading ? (
+        <div className="w-full text-center text-xl font-bold text-white">
+          Loading...
+        </div>
+      ) : (
+        <div
+          className={`w-full ${
+            isGrid ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" : "flex flex-col gap-6"
+          }`}
+        >
+          {filteredData.length === 0 ? (
+            <div className="w-full text-center text-xl font-bold text-red-500">
+              No results found
             </div>
-          ))
-        )}
-      </div>
+          ) : (
+            filteredData.map((item, index) => (
+              <div
+                key={index}
+                className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 ${
+                  !isGrid && "flex items-center gap-6"
+                }`}
+              >
+                {item?.images && (
+                  <img
+                    src={item?.images}
+                    alt={item?.name}
+                    className={`${
+                      isGrid ? "h-96 w-full bg-cover rounded-md" : "h-72 w-48 bg-cover rounded-md"
+                    }`}
+                  />
+                )}
+
+                <div className={`${!isGrid && "flex flex-col flex-grow"}`}>
+                  <h2 className="text-xl font-bold">{item?.name}</h2>
+                  <p className="text-black mt-2">{item?.description}</p>
+                  {item?.address?.country && <h3 className="text-lg mt-2 font-semibold">{item?.address?.country}</h3>}
+                </div>
+
+                <div className={`${!isGrid && "ml-auto"}`}>
+                  <Link href={`/mongolapi1/${item.id}`}>
+                    <button className="w-24 h-12 mt-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                      More
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      )}
     </div>
   );
 }
